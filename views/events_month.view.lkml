@@ -35,7 +35,7 @@ view: events_month {
       label: "Drill into this month ({{ created_month }})"
       url: "
       {% assign vis_config = '{
-      \"type\"  : \"looker_line\",
+      \"type\"  : \"looker_area\",
       \"y_axes\" : [{
       \"maxValue\" : 400,
       \"minValue\" : 0
@@ -45,10 +45,17 @@ view: events_month {
       \"y_axis_tick_density\" : \"default\",
       \"y_axis_tick_density_custom\" : 5,
       \"series_types\" : {
-      \"throughput_minute.average_per_hour\" : \"area\",
-      \"throughput_minute.max_per_hour\" : \"area\"
+      \"events_day.average_per_hour\" : \"area\",
+      \"events_day.max_per_hour\" : \"area\"
       },
       \"point_style\" : \"circle_outline\",
+      \"color_application\" : {
+        \"collection_id\" : \"5591d8d1-6b49-4f8e-bafa-b874d82f8eb7\",
+        \"palette_id\" : \"18d0c733-1d87-42a9-934f-4ba8ef81d736\"
+        },
+      \"series_colors\" : {
+        \"events_day.average_per_hour\" : \"#149888\"
+      },
       \"reference_lines\" : [{
       \"reference_type\" : \"line\",
       \"range_start\" : \"max\",
@@ -77,7 +84,7 @@ view: events_month {
       label: "Drill into this month ({{ created_month }})"
       url: "
       {% assign vis_config = '{
-      \"type\"  : \"looker_line\",
+      \"type\"  : \"looker_area\",
       \"y_axes\" : [{
       \"maxValue\" : 400,
       \"minValue\" : 0
@@ -87,10 +94,17 @@ view: events_month {
       \"y_axis_tick_density\" : \"default\",
       \"y_axis_tick_density_custom\" : 5,
       \"series_types\" : {
-      \"throughput_minute.average_per_hour\" : \"area\",
-      \"throughput_minute.max_per_hour\" : \"area\"
+      \"events_day.average_per_hour\" : \"area\",
+      \"events_day.max_per_hour\" : \"area\"
       },
       \"point_style\" : \"circle_outline\",
+      \"color_application\" : {
+        \"collection_id\" : \"5591d8d1-6b49-4f8e-bafa-b874d82f8eb7\",
+        \"palette_id\" : \"18d0c733-1d87-42a9-934f-4ba8ef81d736\"
+        },
+      \"series_colors\" : {
+        \"events_day.average_per_hour\" : \"#149888\"
+      },
       \"reference_lines\" : [{
       \"reference_type\" : \"line\",
       \"range_start\" : \"max\",

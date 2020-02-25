@@ -37,6 +37,13 @@ view: events_day {
       {% assign vis_config = '{
       \"type\"  : \"looker_area\",
       \"point_style\" : \"circle_outline\",
+      \"color_application\" : {
+        \"collection_id\" : \"5591d8d1-6b49-4f8e-bafa-b874d82f8eb7\",
+        \"palette_id\" : \"18d0c733-1d87-42a9-934f-4ba8ef81d736\"
+      },
+      \"series_colors\" : {
+        \"events_hour.total_per_hour\" : \"#149888\"
+      },
       \"y_axes\" : [{
       \"maxValue\" : 400,
       \"minValue\" : 0
@@ -55,7 +62,7 @@ view: events_day {
       }]
       }'
       %}
-      /explore/snowlooker_adam/events_hour?fields=events.created_hour,events_hour.total_per_hour&f[events_hour.created_date]={{ created_date | url_encode }}%20for%201%20day&vis_config={{ vis_config | encode_uri }}&sorts=events.created_hour+asc"
+      /explore/snowlooker_adam/events_hour?fields=events_hour.created_hour,events_hour.total_per_hour&f[events_hour.created_date]={{ created_date | url_encode }}%20for%201%20day&vis_config={{ vis_config | encode_uri }}&sorts=events.created_hour+asc"
     }
   }
 
@@ -70,6 +77,13 @@ view: events_day {
       {% assign vis_config = '{
       \"type\"  : \"looker_area\",
       \"point_style\" : \"circle_outline\",
+      \"color_application\" : {
+        \"collection_id\" : \"5591d8d1-6b49-4f8e-bafa-b874d82f8eb7\",
+        \"palette_id\" : \"18d0c733-1d87-42a9-934f-4ba8ef81d736\"
+      },
+      \"series_colors\" : {
+        \"events_hour.total_per_hour\" : \"#149888\"
+      },
       \"y_axes\" : [{
       \"maxValue\" : 400,
       \"minValue\" : 0
