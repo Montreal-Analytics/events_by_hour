@@ -1,0 +1,95 @@
+view: events_day {
+  derived_table: {
+    explore_source: events_hour {
+      column: created_hour {}
+      column: max_per_hour {}
+      column: average_per_hour {}
+    }
+  }
+
+  dimension_group: created {
+    type: time
+    timeframes: [date,month]
+    allow_fill: no
+    sql: ${TABLE}.created_hour ;;
+  }
+
+  dimension: max_total {
+    hidden: yes
+    type: number
+    sql: ${TABLE}.max_per_hour ;;
+  }
+
+  dimension: avg_total {
+    hidden: yes
+    type: number
+    sql: ${TABLE}.average_per_hour ;;
+  }
+
+  measure: average_per_hour {
+    description: "Establishes the average number of events per hour for the selected timeframe"
+    type: average
+    value_format: "0"
+    sql: ${avg_total} ;;
+    link: {
+      label: "Drill into this day ({{ created_date }})"
+      url: "
+      {% assign vis_config = '{
+      \"type\"  : \"looker_area\",
+      \"point_style\" : \"circle_outline\",
+      \"y_axes\" : [{
+      \"maxValue\" : 400,
+      \"minValue\" : 0
+      }],
+      \"reference_lines\" : [{
+      \"reference_type\" : \"line\",
+      \"range_start\" : \"max\",
+      \"range_end\" : \"min\",
+      \"margin_top\" : \"deviation\",
+      \"margin_value\" : \"mean\",
+      \"margin_bottom\" : \"deviation\",
+      \"label_position\" : \"right\",
+      \"color\" : \"#bf101a\",
+      \"line_value\" : \"250\",
+      \"label\" : \"Per second cap\"
+      }]
+      }'
+      %}
+      /explore/snowlooker_adam/events_hour?fields=events.created_hour,events_hour.total_per_hour&f[events_hour.created_date]={{ created_date | url_encode }}%20for%201%20day&vis_config={{ vis_config | encode_uri }}&sorts=events.created_hour+asc"
+    }
+  }
+
+  measure: max_per_hour {
+    description: "Establishes the maximum number of events per hour for the selected timeframe"
+    type: max
+    value_format: "0"
+    sql: ${max_total} ;;
+    link: {
+      label: "Drill into this day ({{ created_date }})"
+      url: "
+      {% assign vis_config = '{
+      \"type\"  : \"looker_area\",
+      \"point_style\" : \"circle_outline\",
+      \"y_axes\" : [{
+      \"maxValue\" : 400,
+      \"minValue\" : 0
+      }],
+      \"reference_lines\" : [{
+      \"reference_type\" : \"line\",
+      \"range_start\" : \"max\",
+      \"range_end\" : \"min\",
+      \"margin_top\" : \"deviation\",
+      \"margin_value\" : \"mean\",
+      \"margin_bottom\" : \"deviation\",
+      \"label_position\" : \"right\",
+      \"color\" : \"#bf101a\",
+      \"line_value\" : \"250\",
+      \"label\" : \"Per second cap\"
+      }]
+      }'
+      %}
+      /explore/snowlooker_adam/events_hour?fields=events_hour.created_hour,events_hour.total_per_hour&f[events_hour.created_date]={{ created_date | url_encode }}%20for%201%20day&vis_config={{ vis_config | encode_uri }}&sorts=events.created_hour+asc"
+    }
+  }
+
+}
