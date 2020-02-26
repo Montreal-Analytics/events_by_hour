@@ -4,7 +4,7 @@
   elements:
   - title: events per hour
     name: events per hour
-    model: snowlooker_adam
+    model: events_by_hour_drilldown
     explore: events_month
     type: looker_line
     fields: [events_month.created_month, events_month.average_per_hour, events_month.max_per_hour]

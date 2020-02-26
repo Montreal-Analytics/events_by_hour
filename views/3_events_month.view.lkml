@@ -73,7 +73,7 @@ view: events_month {
         \"height\" : 20
       }'
       %}
-      /explore/snowlooker_adam/events_day?fields=events_day.created_date,events_day.average_per_hour,events_day.max_per_hour&f[events_day.created_month]={{ created_month | url_encode }}%20for%201%20month&vis_config={{ vis_config | encode_uri }}&sorts=events_day.created_day+asc
+      /explore/events_by_hour_drilldown/events_day?fields=events_day.created_date,events_day.average_per_hour,events_day.max_per_hour&f[events_day.created_month]={{ created_month | url_encode }}%20for%201%20month&vis_config={{ vis_config | encode_uri }}&sorts=events_day.created_day+asc
       "
     }
   }
@@ -125,7 +125,7 @@ view: events_month {
         \"height\" : 20
       }'
       %}
-      /explore/snowlooker_adam/events_day?fields=events_day.created_date,events_day.average_per_hour,events_day.max_per_hour&f[events_day.created_month]={{ created_month | url_encode }}%20for%201%20month&vis_config={{ vis_config | encode_uri }}&sorts=events_day.created_day+asc
+      /explore/events_by_hour_drilldown/events_day?fields=events_day.created_date,events_day.average_per_hour,events_day.max_per_hour&f[events_day.created_month]={{ created_month | url_encode }}%20for%201%20month&vis_config={{ vis_config | encode_uri }}&sorts=events_day.created_day+asc
       "
     }
   }

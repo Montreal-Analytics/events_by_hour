@@ -55,7 +55,7 @@ view: events_day {
       }]
       }'
       %}
-      /explore/snowlooker_adam/events_hour?fields=events_hour.created_hour,events_hour.total_per_hour&f[events_hour.created_date]={{ created_date | url_encode }}%20for%201%20day&vis_config={{ vis_config | encode_uri }}&sorts=events.created_hour+asc"
+      /explore/events_by_hour_drilldown/events_hour?fields=events_hour.created_hour,events_hour.total_per_hour&f[events_hour.created_date]={{ created_date | url_encode }}%20for%201%20day&vis_config={{ vis_config | encode_uri }}&sorts=events.created_hour+asc"
     }
   }
 
@@ -95,7 +95,7 @@ view: events_day {
       }]
       }'
       %}
-      /explore/snowlooker_adam/events_hour?fields=events_hour.created_hour,events_hour.total_per_hour&f[events_hour.created_date]={{ created_date | url_encode }}%20for%201%20day&vis_config={{ vis_config | encode_uri }}&sorts=events.created_hour+asc"
+      /explore/events_by_hour_drilldown/events_hour?fields=events_hour.created_hour,events_hour.total_per_hour&f[events_hour.created_date]={{ created_date | url_encode }}%20for%201%20day&vis_config={{ vis_config | encode_uri }}&sorts=events.created_hour+asc"
     }
   }
 
