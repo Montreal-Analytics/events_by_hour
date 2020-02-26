@@ -3,6 +3,9 @@ connection: "snowlooker"
 # include all the views
 include: "/views/**/*.view"
 
+# include the LookML dashboard
+include: "/dashboards/events_per_hour.dashboard"
+
 datagroup: events_by_hour_datagroup {
   max_cache_age: "1 hour"
 }

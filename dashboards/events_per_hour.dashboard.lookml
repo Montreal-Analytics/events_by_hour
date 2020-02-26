@@ -1,5 +1,5 @@
 - dashboard: events_per_hour
-  title: events per hour
+  title: Events Per Hour
   layout: newspaper
   elements:
   - title: events per hour
