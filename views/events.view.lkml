@@ -1,6 +1,5 @@
 view: events {
-  sql_table_name: "PUBLIC"."EVENTS"
-    ;;
+  sql_table_name: "PUBLIC"."EVENTS" ;;
   drill_fields: [id]
 
   dimension: id {

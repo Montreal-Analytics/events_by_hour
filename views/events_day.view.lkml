@@ -2,8 +2,9 @@ view: events_day {
   derived_table: {
     explore_source: events_hour {
       column: created_hour {}
-      column: max_per_hour {}
-      column: average_per_hour {}
+      column: total_per_hour {}
+#       column: max_per_hour {}
+#       column: average_per_hour {}
     }
   }
 
@@ -14,23 +15,29 @@ view: events_day {
     sql: ${TABLE}.created_hour ;;
   }
 
-  dimension: max_total {
+  dimension: total_per_hour {
     hidden: yes
     type: number
-    sql: ${TABLE}.max_per_hour ;;
+    sql: ${TABLE}.total_per_hour ;;
   }
 
-  dimension: avg_total {
-    hidden: yes
-    type: number
-    sql: ${TABLE}.average_per_hour ;;
-  }
+#   dimension: max_total {
+#     hidden: yes
+#     type: number
+#     sql: ${TABLE}.max_per_hour ;;
+#   }
+#
+#   dimension: avg_total {
+#     hidden: yes
+#     type: number
+#     sql: ${TABLE}.average_per_hour ;;
+#   }
 
   measure: average_per_hour {
     description: "Establishes the average number of events per hour for the selected timeframe"
     type: average
     value_format: "0"
-    sql: ${avg_total} ;;
+    sql: ${total_per_hour} ;;
     link: {
       label: "Drill into this day ({{ created_date }})"
       url: "
@@ -70,7 +77,7 @@ view: events_day {
     description: "Establishes the maximum number of events per hour for the selected timeframe"
     type: max
     value_format: "0"
-    sql: ${max_total} ;;
+    sql: ${total_per_hour} ;;
     link: {
       label: "Drill into this day ({{ created_date }})"
       url: "
