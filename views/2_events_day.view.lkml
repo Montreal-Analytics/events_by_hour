@@ -3,8 +3,6 @@ view: events_day {
     explore_source: events_hour {
       column: created_hour {}
       column: total_per_hour {}
-#       column: max_per_hour {}
-#       column: average_per_hour {}
     }
   }
 
@@ -20,18 +18,6 @@ view: events_day {
     type: number
     sql: ${TABLE}.total_per_hour ;;
   }
-
-#   dimension: max_total {
-#     hidden: yes
-#     type: number
-#     sql: ${TABLE}.max_per_hour ;;
-#   }
-#
-#   dimension: avg_total {
-#     hidden: yes
-#     type: number
-#     sql: ${TABLE}.average_per_hour ;;
-#   }
 
   measure: average_per_hour {
     description: "Establishes the average number of events per hour for the selected timeframe"
