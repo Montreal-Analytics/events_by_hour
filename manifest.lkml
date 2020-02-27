@@ -1,4 +1,4 @@
-project_name: "snowlooker_adam"
+project_name: "events_by_hour"
 
 constant: vis_config_for_day {
   value: "{
